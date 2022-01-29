@@ -2,12 +2,12 @@
 Demonstration of the GazeTracking library.
 Check the README.md for complete documentation.
 """
-
+# Step 1: install initial libaries
 import cv2
 from gaze_tracking import GazeTracking
 
 gaze = GazeTracking()
-webcam = cv2.VideoCapture(0)
+webcam = cv2.VideoCapture(0) # if you are using webcam change it to 1
 
 while True:
     # We get a new frame from the webcam
@@ -28,7 +28,7 @@ while True:
     elif gaze.is_center():
         text = "Looking center"
 
-    cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
+    cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2) # it is for color and size of line on the eyes
 
     left_pupil = gaze.pupil_left_coords()
     right_pupil = gaze.pupil_right_coords()
